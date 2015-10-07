@@ -30,9 +30,11 @@ object SparkTFIDF {
 
     //Deleting output files recursively if exists
     val dir = Path("src/main/resources/outputData")
-    if (dir.exists)
+    if (dir.exists) {
       dir.deleteRecursively()
-
+      println("Successfully existing output deleted!!")
+    }
+    println("Writing in new files as output.......")
     tfidf.saveAsTextFile("src/main/resources/outputData")
     //print(tfidf.toString)
     println("Successfully done!!")
