@@ -1,7 +1,9 @@
-import org.apache.spark.mllib.feature.HashingTF
-import org.apache.spark.mllib.feature.IDF
+import org.apache.spark.mllib.feature.{HashingTF, IDF}
 import org.apache.spark.rdd.RDD
-import org.apache.spark.{SparkContext, SparkConf}
+import org.apache.spark.{SparkConf, SparkContext}
+
+import scala.reflect.io.Path
+
 /**
  * Created by hastimal on 10/7/2015.
  */
@@ -25,6 +27,11 @@ object SparkTFIDF {
     val idf = new IDF(minDocFreq = 1).fit(tf)//: RDD[Vector]
 
     val tfidf = idf.transform(tf)//: RDD[Vector]
+
+    //Deleting output files recursively if exists
+    val dir = Path("src/main/resources/outputData")
+    if (dir.exists)
+      dir.deleteRecursively()
 
     tfidf.saveAsTextFile("src/main/resources/outputData")
     //print(tfidf.toString)
