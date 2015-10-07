@@ -40,5 +40,6 @@ object SparkTFIDF {
     println("Successfully done!!")
     //Stopping spark
     sc.stop()
+
   }
 }
