@@ -27,7 +27,9 @@ object SparkTFIDF {
     val tfidf = idf.transform(tf)//: RDD[Vector]
 
     tfidf.saveAsTextFile("src/main/resources/outputData")
+    //print(tfidf.toString)
     println("Successfully done!!")
+    //Stopping spark
     sc.stop()
   }
 }
