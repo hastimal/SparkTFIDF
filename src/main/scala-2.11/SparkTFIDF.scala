@@ -36,7 +36,7 @@ object SparkTFIDF {
     }
     println("Writing in new files as output.......")
     tfidf.saveAsTextFile("src/main/resources/outputData")
-    print(tfidf.toString)
+   // print(tfidf.collect().toString)
     println("Successfully done!!")
     //Stopping spark
     sc.stop()
