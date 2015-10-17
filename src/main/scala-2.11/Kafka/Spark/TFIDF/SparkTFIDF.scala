@@ -1,3 +1,5 @@
+package Kafka.Spark.TFIDF
+
 import org.apache.spark.mllib.feature.{HashingTF, IDF}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
